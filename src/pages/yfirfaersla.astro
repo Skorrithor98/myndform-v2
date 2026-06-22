@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Yfirfærsla">
+
+  <section class="page-hero">
+    <div class="hero-label">Hönnun & framleiðsla</div>
+    <h1>Yfir<em>færsla</em></h1>
+    <p>Við flytjum gamalt efni yfir á stafrænt snið — VHS, Super 8, myndspiður og fleira. Geymdu minningarnar áður en það er of seint.</p>
+  </section>
+
+  <section class="formats-section">
+    <div class="formats-header">
+      <div class="section-label">Snið sem við höndlum</div>
+      <h2>Hvaða efni<br/>getum við flutt?</h2>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-name">VHS & VHS-C</div>
+        <div class="format-desc">Við flytjum VHS og VHS-C yfir á stafrænt snið í hágæða upplausn.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-name">Super 8 & 8mm</div>
+        <div class="format-desc">Gamlar kvikmyndaspólur fluttar yfir með varðveislu á upprunalegu gæðunum.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-name">Betamax & Video8</div>
+        <div class="format-desc">Hi8 og fleiri eldri snið — við höndlum þau öll með sömu fagmennsku.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-name">Hljóðspólur</div>
+        <div class="format-desc">Hljóðupptökur á spólum fluttar yfir á stafrænt snið.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="steps-header">
+      <div class="section-label">Ferlið</div>
+      <h2>Hvernig<br/>virkar það?</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-title">Sendu okkur efnið</div>
+          <div class="step-desc">Komdu með kassettuna eða spóluna á skrifstofu okkar í Hafnarfirði.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-title">Við flytjum yfir</div>
+          <div class="step-desc">Við sjáum um alla tæknilega hluta yfirfærslunnar með faglegum búnaði.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-title">Þú færð skrárnar</div>
+          <div class="step-desc">Við afhendum þér efnið á USB eða sendum yfir net — þitt val.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ertu með gamalt efni<br/>sem þarfnast yfirfærslu?</h2>
+      <a href="mailto:myndform@myndform.is" class="cta-btn">Hafðu samband</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--gray-20);
+    max-width: 800px;
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .page-hero p {
+    font-size: 16px; color: var(--gray-60); line-height: 1.7;
+  }
+
+  /* ── FORMATS ── */
+  .formats-section {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--gray-20);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 64px; align-items: start;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .formats-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+  .format-name {
+    font-size: 15px; font-weight: 500; margin-bottom: 8px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--gray-20);
+  }
+  .format-desc { font-size: 13px; color: var(--gray-60); line-height: 1.7; }
+
+  /* ── STEPS ── */
+  .steps-section {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--gray-20);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 64px; align-items: start;
+  }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: grid; grid-template-columns: 48px 1fr;
+    gap: 24px; align-items: start;
+    padding: 28px 0; border-bottom: 1px solid var(--gray-20);
+  }
+  .step:first-child { border-top: 1px solid var(--gray-20); }
+  .step-number {
+    font-size: 12px; font-weight: 500; color: var(--red);
+    letter-spacing: 0.06em; padding-top: 3px;
+  }
+  .step-title { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--gray-60); line-height: 1.7; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 96px 48px;
+  }
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 48px;
+  }
+  .cta-btn {
+    display: inline-block; flex-shrink: 0;
+    background: var(--red); color: var(--white);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 72px 24px 48px; }
+    .formats-section { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+    .formats-grid { grid-template-columns: 1fr; }
+    .steps-section { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+    .cta-section { padding: 64px 24px; }
+    .cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>

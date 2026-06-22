@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kvikmyndadreifing">
+
+  <section class="page-hero">
+    <div class="hero-label">Myndform</div>
+    <h1>Kvikmynda<em>dreifing</em></h1>
+    <p>Við dreifum erlendum og innlendum kvikmyndum til íslenskra kvikmyndahúsa.</p>
+  </section>
+
+  <section class="film-tabs-section">
+    <div class="film-tabs">
+      <button class="tab active" data-tab="now">Í bíó núna</button>
+      <button class="tab" data-tab="soon">Væntanlegt</button>
+      <button class="tab" data-tab="archive">Eldri myndir</button>
+    </div>
+  </section>
+
+  <section id="tab-now" class="tab-content film-section">
+    <div class="film-grid">
+      <div class="film-card">
+        <div class="film-poster p3"></div>
+        <div class="film-badge badge-now">Í bíó</div>
+        <div class="film-title">The Furious</div>
+        <div class="film-date">18. júní 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p4"></div>
+        <div class="film-badge badge-now">Í bíó</div>
+        <div class="film-title">Obsession</div>
+        <div class="film-date">28. maí 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p1"></div>
+        <div class="film-badge badge-now">Í bíó</div>
+        <div class="film-title">Backrooms</div>
+        <div class="film-date">28. maí 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p5"></div>
+        <div class="film-badge badge-now">Í bíó</div>
+        <div class="film-title">Disclosure Day</div>
+        <div class="film-date">10. júní 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-soon" class="tab-content film-section" style="display:none">
+    <div class="film-grid">
+      <div class="film-card">
+        <div class="film-poster p2"></div>
+        <div class="film-badge badge-soon">1. júlí</div>
+        <div class="film-title">Skósveinar og skrímsli</div>
+        <div class="film-date">1. júlí 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p6"></div>
+        <div class="film-badge badge-soon">16. júlí</div>
+        <div class="film-title">The Odyssey</div>
+        <div class="film-date">16. júlí 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p7"></div>
+        <div class="film-badge badge-soon">13. ágúst</div>
+        <div class="film-title">One Night Only</div>
+        <div class="film-date">13. ágúst 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p3"></div>
+        <div class="film-badge badge-soon">13. ágúst</div>
+        <div class="film-title">Cliffhanger</div>
+        <div class="film-date">13. ágúst 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p8"></div>
+        <div class="film-badge badge-soon">20. ágúst</div>
+        <div class="film-title">Spa Weekend</div>
+        <div class="film-date">20. ágúst 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p4"></div>
+        <div class="film-badge badge-soon">3. september</div>
+        <div class="film-title">By Any Means</div>
+        <div class="film-date">3. september 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p1"></div>
+        <div class="film-badge badge-soon">9. september</div>
+        <div class="film-title">Onslaught</div>
+        <div class="film-date">9. september 2026</div>
+      </div>
+      <div class="film-card">
+        <div class="film-poster p5"></div>
+        <div class="film-badge badge-soon">19. nóvember</div>
+        <div class="film-title">Hunger Games: Sunrise on the Reaping</div>
+        <div class="film-date">19. nóvember 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-archive" class="tab-content film-section" style="display:none">
+    <div class="film-list">
+      <a href="#" class="film-row">
+        <span class="film-row-date">September 2025</span>
+        <span class="film-row-title">Him</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Oktober 2025</span>
+        <span class="film-row-title">The Smashing Machine</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Oktober 2025</span>
+        <span class="film-row-title">Dúkkuhús Gabbýjar</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Oktober 2025</span>
+        <span class="film-row-title">Black Phone 2</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Oktober 2025</span>
+        <span class="film-row-title">Bugonia</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Oktober 2025</span>
+        <span class="film-row-title">Skrímslasveitin</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Nóvember 2025</span>
+        <span class="film-row-title">Keeper</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+      <a href="#" class="film-row">
+        <span class="film-row-date">Nóvember 2025</span>
+        <span class="film-row-title">Now You See Me: Now You Don't</span>
+        <span class="film-row-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .page-hero {
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--gray-20);
+    max-width: 800px;
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .page-hero p {
+    font-size: 16px; color: var(--gray-60); line-height: 1.7;
+  }
+
+  /* ── TABS ── */
+  .film-tabs-section {
+    position: sticky; top: 64px; z-index: 9;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-20);
+    padding: 0 48px;
+  }
+  .film-tabs { display: flex; gap: 0; }
+  .tab {
+    padding: 16px 24px; font-size: 13px; font-weight: 500;
+    color: var(--gray-60); cursor: pointer;
+    border: none; background: none; font-family: var(--font);
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--black); }
+  .tab.active { color: var(--black); border-bottom-color: var(--red); }
+
+  /* ── FILM GRID ── */
+  .film-section { padding: 48px; }
+  .film-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .film-card { cursor: pointer; }
+  .film-poster {
+    aspect-ratio: 2/3; border-radius: 4px;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+  }
+  .film-card:hover .film-poster { opacity: 0.85; }
+  .film-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 100px; margin-bottom: 8px;
+  }
+  .badge-now { background: var(--red); color: #fff; }
+  .badge-soon { background: var(--gray-10); color: var(--gray-60); border: 1px solid var(--gray-20); }
+  .film-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+  .film-date { font-size: 12px; color: var(--gray-60); }
+
+  /* poster colours */
+  .p1 { background: linear-gradient(145deg, #2d1545, #0e0820); }
+  .p2 { background: linear-gradient(145deg, #1a2d10, #081508); }
+  .p3 { background: linear-gradient(145deg, #3a1515, #180808); }
+  .p4 { background: linear-gradient(145deg, #102535, #081218); }
+  .p5 { background: linear-gradient(145deg, #2a2010, #130f08); }
+  .p6 { background: linear-gradient(145deg, #1a1535, #0c0a18); }
+  .p7 { background: linear-gradient(145deg, #252510, #101008); }
+  .p8 { background: linear-gradient(145deg, #301020, #180810); }
+
+  /* ── ARCHIVE LIST ── */
+  .film-list { display: flex; flex-direction: column; }
+  .film-row {
+    display: grid; grid-template-columns: 160px 1fr 24px;
+    align-items: center; gap: 24px;
+    padding: 18px 0; border-bottom: 1px solid var(--gray-20);
+    text-decoration: none; color: inherit;
+    transition: padding-left 0.2s;
+  }
+  .film-row:first-child { border-top: 1px solid var(--gray-20); }
+  .film-row:hover { padding-left: 8px; }
+  .film-row-date { font-size: 12px; color: var(--gray-60); }
+  .film-row-title { font-size: 15px; font-weight: 500; }
+  .film-row-arrow {
+    font-size: 16px; color: var(--red);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .film-row:hover .film-row-arrow { opacity: 1; }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 72px 24px 48px; }
+    .film-tabs-section { padding: 0 24px; }
+    .film-section { padding: 32px 24px; }
+    .film-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .film-row { grid-template-columns: 120px 1fr; }
+    .film-row-arrow { display: none; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+        document.getElementById('tab-' + tabId).style.display = 'block';
+      });
+    });
+  });
+</script>

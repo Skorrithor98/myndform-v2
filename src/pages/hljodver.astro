@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Hljóðver">
+
+  <section class="page-hero">
+    <div class="hero-label">Hönnun & framleiðsla</div>
+    <h1>Hljóð<em>ver</em></h1>
+    <p>Árið 2011 var útbúið fullkomið hljóðver og árið 2016 var svo bætt við öðru hljóðveri. Myndform hefur hljóðsett nokkrar vinsælustu teiknimyndir síðustu ára.</p>
+  </section>
+
+  <section class="photo-section">
+    <div class="photo-grid">
+      <div class="photo-item tall bg-studio-1">
+        <div class="photo-label">Aðalhljóðver</div>
+      </div>
+      <div class="photo-item tall bg-studio-2">
+        <div class="photo-label">Blöndunarpultar</div>
+      </div>
+      <div class="photo-item tall bg-studio-3">
+        <div class="photo-label">Stjórnborð</div>
+      </div>
+      <div class="photo-item tall bg-studio-4">
+        <div class="photo-label">Hljóðnemi</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-header">
+      <div class="section-label">Þjónusta</div>
+      <h2>Hvað við<br/>bjóðum upp á</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-name">Upptökur</div>
+        <div class="feature-desc">Raddar, þættir, auglýsingar og kvikmyndir — við tökum við öllum verkefnum.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-name">Blöndun & meðhöndlun</div>
+        <div class="feature-desc">Fagleg hljóðblöndun og mastering fyrir hvaða miðil sem er.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-name">Kvikmyndahljóð</div>
+        <div class="feature-desc">Hljóðlegar lausnir sérstaklega fyrir kvikmyndir og sjónvarpsefni.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-name">Útvarp & podcast</div>
+        <div class="feature-desc">Tækni og aðstaða fyrir útvarpsdæmi og hlaðvarp í heimsmælikvarða.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="talsetning-section">
+    <div class="talsetning-header">
+      <div class="section-label">Sérstök þjónusta</div>
+      <h2>Talsetning</h2>
+      <p>Mikill fjöldi erlendra teiknimynda hafa verið talsettar hjá Myndform. Í samvinnu við framúrskarandi leikstjóra, ásamt stórskotaliði íslenskra leikara, hefur Myndform tekist að tryggja það að íslensk tunga sé alltaf til boða í skemmtiefni fyrir ungviði landsins.</p>
+      <p>Vinsælar teiknimyndir sem Myndform hefur látið talsetja: Wicked, Aulinn ég, Skósveinarnir, Super Mario Bros Bíómyndin, Viana, Finding Dory, svo eitthvað sé nefnt.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-item tall bg-film-1">
+        <div class="photo-label">Skósveinarnir</div>
+      </div>
+      <div class="photo-item tall bg-film-2">
+        <div class="photo-label">Syngdu 2</div>
+      </div>
+      <div class="photo-item tall bg-film-3">
+        <div class="photo-label">Super Mario Bros</div>
+      </div>
+      <div class="photo-item tall bg-film-4">
+        <div class="photo-label">Wicked</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Langar þig að bóka tíma?</h2>
+      <a href="mailto:myndform@myndform.is" class="cta-btn">Hafðu samband</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--gray-20);
+    max-width: 800px;
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .page-hero p {
+    font-size: 16px; color: var(--gray-60); line-height: 1.7;
+  }
+
+  /* ── PHOTO GRID ── */
+  .photo-section { padding: 48px; }
+  .photo-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  }
+  .photo-item {
+    aspect-ratio: 4/3; border-radius: 4px;
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .photo-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 16px 14px;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+    font-size: 11px; font-weight: 500; color: #fff;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .photo-item:hover .photo-label { opacity: 1; }
+
+  .bg-studio-1 { background: linear-gradient(145deg, #1a1a2e, #16213e); }
+  .bg-studio-2 { background: linear-gradient(145deg, #2a2a2a, #1a1a1a); }
+  .bg-studio-3 { background: linear-gradient(145deg, #1e2a1e, #111811); }
+  .bg-studio-4 { background: linear-gradient(145deg, #2a1a1a, #1a1010); }
+  .bg-film-1 { background: linear-gradient(145deg, #f59e0b, #d97706); }
+  .bg-film-2 { background: linear-gradient(145deg, #3b82f6, #1d4ed8); }
+  .bg-film-3 { background: linear-gradient(145deg, #ef4444, #b91c1c); }
+  .bg-film-4 { background: linear-gradient(145deg, #10b981, #047857); }
+
+  /* ── FEATURES ── */
+  .features-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-20);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 64px; align-items: start;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .features-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+  .feature-name {
+    font-size: 15px; font-weight: 500; margin-bottom: 8px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--gray-20);
+  }
+  .feature-desc { font-size: 13px; color: var(--gray-60); line-height: 1.7; }
+
+  /* ── TALSETNING ── */
+  .talsetning-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-20);
+  }
+  .talsetning-header {
+    max-width: 640px; margin-bottom: 40px;
+  }
+  .talsetning-header p {
+    font-size: 14px; color: var(--gray-60); line-height: 1.8;
+    margin-top: 16px;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 96px 48px;
+    border-top: 1px solid var(--gray-20);
+  }
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cta-btn {
+    display: inline-block; flex-shrink: 0;
+    background: var(--red); color: var(--white);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 72px 24px 48px; }
+    .photo-section { padding: 32px 24px; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-section { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .talsetning-section { padding: 56px 24px; }
+    .cta-section { padding: 64px 24px; }
+    .cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>

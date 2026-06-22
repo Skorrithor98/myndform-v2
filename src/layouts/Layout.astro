@@ -1,0 +1,304 @@
+---
+const { title } = Astro.props;
+---
+
+<html lang="is">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Myndform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --black: #111111;
+        --gray-80: #333333;
+        --gray-60: #666666;
+        --gray-20: #e8e8e8;
+        --gray-10: #f5f5f5;
+        --white: #ffffff;
+        --red: #e02020;
+        --display: 'Fraunces', Georgia, serif;
+        --font: 'Inter', system-ui, sans-serif;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--font);
+        color: var(--black);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 48px; height: 64px;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+      .nav-logo {
+        font-family: var(--display);
+        font-size: 18px; font-weight: 400;
+        color: var(--black); text-decoration: none;
+        letter-spacing: 0.01em;
+      }
+      .nav-logo span { color: var(--red); }
+      .nav-links {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: flex; gap: 40px; list-style: none;
+      }
+      .nav-links > li { position: relative; }
+      .nav-links > li > a {
+        font-size: 13px; color: var(--gray-60); text-decoration: none;
+        letter-spacing: 0.02em; transition: color 0.2s;
+        display: flex; align-items: center; gap: 4px;
+        height: 64px;
+      }
+      .nav-links > li > a:hover { color: var(--black); }
+      .arrow { font-size: 8px; opacity: 0.4; transition: transform 0.2s; }
+      .nav-links > li:hover > a .arrow { transform: rotate(180deg); }
+
+      .dropdown {
+        display: none;
+        position: absolute; top: 100%; left: 50%;
+        transform: translateX(-50%);
+        background: var(--white);
+        border: 1px solid var(--gray-20);
+        border-radius: 8px;
+        min-width: 200px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+        overflow: hidden;
+      }
+      .nav-links > li:hover .dropdown { display: block; }
+      .dropdown a {
+        display: block; padding: 12px 20px;
+        font-size: 13px; color: var(--gray-60);
+        text-decoration: none; height: auto;
+        border-bottom: 1px solid var(--gray-20);
+        transition: background 0.15s, color 0.15s;
+      }
+      .dropdown a:last-child { border-bottom: none; }
+      .dropdown a:hover { background: var(--gray-10); color: var(--black); }
+
+      .nav-contact {
+        font-size: 12px; font-weight: 500; color: var(--black);
+        text-decoration: none; letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 1px solid rgba(0,0,0,0.2);
+        padding: 8px 18px; border-radius: 100px;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .nav-contact:hover {
+        background: var(--black); color: var(--white);
+        border-color: var(--black);
+      }
+
+      /* ── HAMBURGER ── */
+      .nav-hamburger {
+        display: none;
+        flex-direction: column; justify-content: center; gap: 5px;
+        width: 40px; height: 40px;
+        background: none; border: none; cursor: pointer;
+        padding: 8px;
+      }
+      .nav-hamburger span {
+        display: block; width: 22px; height: 1.5px;
+        background: var(--black); transition: all 0.25s;
+        transform-origin: center;
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+
+      /* ── MOBILE MENU ── */
+      .mobile-menu {
+        display: none;
+        position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+        background: var(--white); z-index: 99;
+        padding: 32px 24px;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a {
+        font-size: 22px; font-weight: 400;
+        font-family: var(--display);
+        color: var(--black); text-decoration: none;
+        padding: 16px 0; border-bottom: 1px solid var(--gray-20);
+        transition: color 0.15s;
+      }
+      .mobile-menu a:hover { color: var(--red); }
+      .mobile-menu-sub {
+        padding: 8px 0 8px 16px;
+        display: flex; flex-direction: column; gap: 0;
+      }
+      .mobile-menu-sub a {
+        font-size: 16px; font-family: var(--font);
+        color: var(--gray-60); padding: 10px 0;
+        border-bottom: 1px solid var(--gray-20);
+      }
+      .mobile-menu-contact {
+        margin-top: 32px;
+        font-size: 13px; color: var(--gray-60); line-height: 2;
+      }
+      .mobile-menu-contact a {
+        font-size: 13px; font-family: var(--font);
+        color: var(--gray-60); border-bottom: none; padding: 2px 0;
+      }
+
+      /* ── MAIN ── */
+      main { padding-top: 64px; }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--gray-20);
+        padding: 56px 48px 40px;
+        display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 48px;
+      }
+      .footer-logo {
+        font-family: var(--display);
+        font-size: 22px; font-weight: 400; color: var(--black);
+        margin-bottom: 12px; display: block;
+        text-decoration: none;
+      }
+      .footer-logo span { color: var(--red); }
+      .footer-tagline {
+        font-size: 13px; color: var(--gray-60); line-height: 1.6;
+        max-width: 240px;
+      }
+      .footer-col-title {
+        font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--gray-60); margin-bottom: 16px;
+      }
+      .footer-col a, .footer-col p {
+        display: block; font-size: 13px; color: var(--gray-60);
+        text-decoration: none; line-height: 2;
+        transition: color 0.15s;
+      }
+      .footer-col a:hover { color: var(--black); }
+      .footer-bottom {
+        border-top: 1px solid var(--gray-20);
+        padding: 20px 48px;
+        display: flex; justify-content: space-between;
+        font-size: 12px; color: var(--gray-60);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 960px) {
+        nav { padding: 0 24px; }
+        .nav-links { display: none; }
+        .nav-contact { display: none; }
+        .nav-hamburger { display: flex; }
+        footer { grid-template-columns: 1fr; padding: 40px 24px; }
+        .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; }
+        main { padding-top: 64px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="/">Myndf<span>o</span>rm</a>
+      <ul class="nav-links">
+        <li><a href="/">Forsíða</a></li>
+        <li><a href="/films">Kvikmyndadreifing</a></li>
+        <li>
+          <a href="/portfolio">Hönnun & framleiðsla <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="/portfolio">Auglýsingahönnun</a>
+            <a href="/hljodver">Hljóðver</a>
+            <a href="/yfirfaersla">Yfirfærsla</a>
+            <a href="/prentun">Prentun</a>
+          </div>
+        </li>
+        <li><a href="/heildsala">Heildsala</a></li>
+        <li><a href="/celsius">Celsius</a></li>
+        <li><a href="/um-okkur">Um okkur</a></li>
+      </ul>
+      <a class="nav-contact" href="mailto:myndform@myndform.is">Samband</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Opna valmynd">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/" onclick="closeMenu()">Forsíða</a>
+      <a href="/films" onclick="closeMenu()">Kvikmyndadreifing</a>
+      <a href="/portfolio" onclick="closeMenu()">Hönnun & framleiðsla</a>
+      <div class="mobile-menu-sub">
+        <a href="/portfolio" onclick="closeMenu()">Auglýsingahönnun</a>
+        <a href="/hljodver" onclick="closeMenu()">Hljóðver</a>
+        <a href="/yfirfaersla" onclick="closeMenu()">Yfirfærsla</a>
+        <a href="/prentun" onclick="closeMenu()">Prentun</a>
+      </div>
+      <a href="/heildsala" onclick="closeMenu()">Heildsala</a>
+      <a href="/celsius" onclick="closeMenu()">Celsius</a>
+      <a href="/um-okkur" onclick="closeMenu()">Um okkur</a>
+      <div class="mobile-menu-contact">
+        <a href="tel:+3545340400">+354 534 0400</a>
+        <a href="mailto:myndform@myndform.is">myndform@myndform.is</a>
+      </div>
+    </div>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div>
+        <a class="footer-logo" href="/">Myndf<span>o</span>rm</a>
+        <p class="footer-tagline">Kvikmyndadreifing, hönnun, prentun og heildsala um allt land síðan 1990.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Þjónusta</div>
+        <a href="/films">Kvikmyndadreifing</a>
+        <a href="/portfolio">Auglýsingahönnun</a>
+        <a href="/hljodver">Hljóðver</a>
+        <a href="/yfirfaersla">Yfirfærsla</a>
+        <a href="/prentun">Prentun</a>
+        <a href="/heildsala">Heildsala</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Hafa samband</div>
+        <p>Trönuhraun 1<br/>220 Hafnarfjörður</p>
+        <a href="tel:+3545340400">+354 534 0400</a>
+        <a href="mailto:myndform@myndform.is">myndform@myndform.is</a>
+        <p style="margin-top:8px">Mán 09–16<br/>Þri–Fös 09–17</p>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      <span>© 2026 Myndform</span>
+      <span>Trönuhraun 1, 220 Hafnarfjörður</span>
+    </div>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+
+      function closeMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    </script>
+  </body>
+</html>

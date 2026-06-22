@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Um okkur">
+
+  <section class="page-hero">
+    <div class="hero-label">Myndform</div>
+    <h1>Um <em>okkur</em></h1>
+    <p>Myndform hefur starfað við kvikmyndadreifingu, hönnun, prentun og heildsölu í áratugi. Við erum staðsett í Trönuhrauni 1 í Hafnarfirði og þjónum viðskiptavinum um allt land.</p>
+  </section>
+
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-block">
+        <div class="info-label">Staðsetning</div>
+        <div class="info-value">Trönuhraun 1<br/>220 Hafnarfjörður</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Sími</div>
+        <div class="info-value">
+          <a href="tel:+3545340400">+354 534 0400</a>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Netfang</div>
+        <div class="info-value">
+          <a href="mailto:myndform@myndform.is">myndform@myndform.is</a>
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Opnunartímar</div>
+        <div class="info-value">
+          Mánudagur 09–16<br/>
+          Þriðjudagur–Föstudagur 09–17<br/>
+          Lokað um helgar
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="services-header">
+      <div class="section-label">Þjónusta okkar</div>
+      <h2>Hvað við<br/>gerum</h2>
+    </div>
+    <div class="services-list">
+      <a href="/films" class="service-row">
+        <span class="service-number">01</span>
+        <span class="service-name">Kvikmyndadreifing</span>
+        <span class="service-desc">Dreifing á erlendum og innlendum kvikmyndum til íslenskra kvikmyndahúsa.</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="/portfolio" class="service-row">
+        <span class="service-number">02</span>
+        <span class="service-name">Auglýsingahönnun</span>
+        <span class="service-desc">Hönnun og framleiðsla auglýsinga þvert á miðla.</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="/hljodver" class="service-row">
+        <span class="service-number">03</span>
+        <span class="service-name">Hljóðver</span>
+        <span class="service-desc">Faglegt hljóðver til leigu fyrir þætti, auglýsingar og kvikmyndir.</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="/yfirfaersla" class="service-row">
+        <span class="service-number">04</span>
+        <span class="service-name">Yfirfærsla</span>
+        <span class="service-desc">Yfirfærsla á gömlu efni yfir á stafrænt snið.</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="/prentun" class="service-row">
+        <span class="service-number">05</span>
+        <span class="service-name">Prentun</span>
+        <span class="service-desc">Bílamerkingar, innréttingafilmur, skiltagerð og prentverkefni.</span>
+        <span class="service-arrow">→</span>
+      </a>
+      <a href="/heildsala" class="service-row">
+        <span class="service-number">06</span>
+        <span class="service-name">Heildsala</span>
+        <span class="service-desc">Dreifing á borðspilum, leikföngum og mat- og drykkjarvörum.</span>
+        <span class="service-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Langar þig að heyra<br/>meira frá okkur?</h2>
+      <a href="mailto:myndform@myndform.is" class="cta-btn">Hafðu samband</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--gray-20);
+    max-width: 800px;
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .page-hero p {
+    font-size: 16px; color: var(--gray-60); line-height: 1.7;
+  }
+
+  /* ── INFO ── */
+  .info-section {
+    padding: 64px 48px;
+    border-bottom: 1px solid var(--gray-20);
+  }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px;
+  }
+  .info-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 12px;
+  }
+  .info-value {
+    font-size: 15px; line-height: 1.7; color: var(--black);
+  }
+  .info-value a {
+    color: var(--black); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .info-value a:hover { color: var(--red); }
+
+  /* ── SERVICES ── */
+  .services-section {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--gray-20);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 64px; align-items: start;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .services-list { display: flex; flex-direction: column; }
+  .service-row {
+    display: grid; grid-template-columns: 40px 200px 1fr 24px;
+    align-items: center; gap: 24px;
+    padding: 20px 0; border-bottom: 1px solid var(--gray-20);
+    text-decoration: none; color: inherit;
+    transition: padding-left 0.2s;
+  }
+  .service-row:first-child { border-top: 1px solid var(--gray-20); }
+  .service-row:hover { padding-left: 8px; }
+  .service-number { font-size: 11px; color: var(--red); font-weight: 500; }
+  .service-name { font-size: 15px; font-weight: 500; }
+  .service-desc { font-size: 13px; color: var(--gray-60); line-height: 1.5; }
+  .service-arrow {
+    font-size: 16px; color: var(--red);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .service-row:hover .service-arrow { opacity: 1; }
+
+  /* ── CTA ── */
+  .cta-section { padding: 96px 48px; }
+  .cta-inner {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 48px;
+  }
+  .cta-btn {
+    display: inline-block; flex-shrink: 0;
+    background: var(--red); color: var(--white);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 72px 24px 48px; }
+    .info-section { padding: 48px 24px; }
+    .info-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .services-section { grid-template-columns: 1fr; padding: 56px 24px; gap: 32px; }
+    .service-row { grid-template-columns: 40px 1fr; }
+    .service-desc, .service-arrow { display: none; }
+    .cta-section { padding: 64px 24px; }
+    .cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>

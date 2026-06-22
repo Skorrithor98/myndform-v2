@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Auglýsingahönnun">
+
+  <section class="page-hero">
+    <div class="hero-label">Hönnun & framleiðsla</div>
+    <h1>Auglýsinga<em>hönnun</em></h1>
+    <p>Við hönnun og sköpum allar gerðir auglýsinga þvert á miðla — frá hugmynd til framkvæmdar.</p>
+  </section>
+
+  <section class="portfolio-grid">
+    <div class="grid-row two">
+      <div class="grid-item tall bg-dark">
+        <div class="grid-label">Bíóauglýsing</div>
+      </div>
+      <div class="grid-item tall bg-mid">
+        <div class="grid-label">Prentverkefni</div>
+      </div>
+    </div>
+    <div class="grid-row four">
+      <div class="grid-item sq bg-warm">
+        <div class="grid-label">Límmiðar</div>
+      </div>
+      <div class="grid-item sq bg-red">
+        <div class="grid-label">Skiltagerð</div>
+      </div>
+      <div class="grid-item sq bg-slate">
+        <div class="grid-label">Bæklingar</div>
+      </div>
+      <div class="grid-item sq bg-light">
+        <div class="grid-label">Stafrænt efni</div>
+      </div>
+    </div>
+    <div class="grid-row four">
+      <div class="grid-item sq bg-mid">
+        <div class="grid-label">Kvikmyndapóstar</div>
+      </div>
+      <div class="grid-item sq bg-dark">
+        <div class="grid-label">Sjónvarpsauglýsingar</div>
+      </div>
+      <div class="grid-item sq bg-warm">
+        <div class="grid-label">Bílamerkingar</div>
+      </div>
+      <div class="grid-item sq bg-red">
+        <div class="grid-label">Vörumerkjaþróun</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-list-section">
+    <div class="services-list-header">
+      <div class="section-label">Þjónusta</div>
+      <h2>Hvað getum<br/>við gert fyrir þig?</h2>
+    </div>
+    <div class="services-list">
+      <a href="/hljodver" class="service-row">
+        <span class="service-row-number">01</span>
+        <span class="service-row-name">Hljóðver</span>
+        <span class="service-row-desc">Fagleg hljóðver til leigu fyrir þætti, auglýsingar og kvikmyndir.</span>
+        <span class="service-row-arrow">→</span>
+      </a>
+      <a href="/yfirfaersla" class="service-row">
+        <span class="service-row-number">02</span>
+        <span class="service-row-name">Yfirfærsla</span>
+        <span class="service-row-desc">Yfirfærsla á gömlu efni yfir á stafrænt snið — VHS, Super 8 og fleira.</span>
+        <span class="service-row-arrow">→</span>
+      </a>
+      <a href="/prentun" class="service-row">
+        <span class="service-row-number">03</span>
+        <span class="service-row-name">Prentun</span>
+        <span class="service-row-desc">Bílamerkingar, innréttingafilmur, skiltagerð og stór prentverkefni.</span>
+        <span class="service-row-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Hefur þú verkefni í huga?</h2>
+      <a href="mailto:myndform@myndform.is" class="cta-btn">Hafðu samband</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--gray-20);
+    max-width: 800px;
+  }
+  .hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .page-hero p {
+    font-size: 16px; color: var(--gray-60); line-height: 1.7;
+  }
+
+  /* ── GRID ── */
+  .portfolio-grid { padding: 48px; }
+  .grid-row { display: grid; gap: 8px; margin-bottom: 8px; }
+  .grid-row.two { grid-template-columns: 1fr 1fr; }
+  .grid-row.four { grid-template-columns: repeat(4, 1fr); }
+  .grid-item {
+    border-radius: 4px; position: relative; overflow: hidden; cursor: pointer;
+  }
+  .grid-item.tall { aspect-ratio: 4/3; }
+  .grid-item.sq { aspect-ratio: 1/1; }
+  .grid-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 16px 14px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    font-size: 11px; font-weight: 500; color: #fff;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .grid-item:hover .grid-label { opacity: 1; }
+
+  .bg-dark { background: #1a1a1a; }
+  .bg-mid { background: #aaaaaa; }
+  .bg-warm { background: #c0a898; }
+  .bg-red { background: #c01010; }
+  .bg-slate { background: #8898aa; }
+  .bg-light { background: #d0ccc8; }
+
+  /* ── SERVICES LIST ── */
+  .services-list-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-20);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: start;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-60); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--red);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .services-list { display: flex; flex-direction: column; }
+  .service-row {
+    display: grid; grid-template-columns: 32px 160px 1fr 24px;
+    align-items: center; gap: 20px;
+    padding: 20px 0; border-bottom: 1px solid var(--gray-20);
+    text-decoration: none; color: inherit;
+    transition: padding-left 0.2s;
+  }
+  .service-row:first-child { border-top: 1px solid var(--gray-20); }
+  .service-row:hover { padding-left: 8px; }
+  .service-row-number { font-size: 11px; color: var(--red); font-weight: 500; }
+  .service-row-name { font-size: 15px; font-weight: 500; }
+  .service-row-desc { font-size: 13px; color: var(--gray-60); line-height: 1.5; }
+  .service-row-arrow {
+    font-size: 16px; color: var(--red);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .service-row:hover .service-row-arrow { opacity: 1; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 96px 48px;
+    border-top: 1px solid var(--gray-20);
+  }
+  .cta-inner {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cta-btn {
+    display: inline-block; flex-shrink: 0;
+    background: var(--red); color: var(--white);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 72px 24px 48px; }
+    .portfolio-grid { padding: 32px 24px; }
+    .grid-row.four { grid-template-columns: repeat(2, 1fr); }
+    .services-list-section { grid-template-columns: 1fr; padding: 56px 24px; gap: 40px; }
+    .service-row { grid-template-columns: 32px 1fr; }
+    .service-row-desc, .service-row-arrow { display: none; }
+    .cta-section { padding: 64px 24px; }
+    .cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>
