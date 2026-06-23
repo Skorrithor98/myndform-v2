@@ -61,21 +61,34 @@ const { title } = Astro.props;
         height: 64px;
       }
       .nav-links > li > a:hover { color: var(--black); }
+.nav-links > li > a::after {
+  content: ''; position: absolute; bottom: -2px; left: 16px; right: 16px;
+  height: 1px; background: var(--red);
+  transform: scaleX(0); transition: transform 0.3s ease;
+}
+.nav-links > li > a:hover::after { transform: scaleX(1); }
       .arrow { font-size: 8px; opacity: 0.4; transition: transform 0.2s; }
       .nav-links > li:hover > a .arrow { transform: rotate(180deg); }
 
       .dropdown {
-        display: none;
-        position: absolute; top: 100%; left: 50%;
-        transform: translateX(-50%);
-        background: var(--white);
-        border: 1px solid var(--gray-20);
-        border-radius: 8px;
-        min-width: 200px;
-        box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-        overflow: hidden;
-      }
-      .nav-links > li:hover .dropdown { display: block; }
+  display: block;
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--white);
+  border: 1px solid var(--gray-20);
+  border-radius: 8px;
+  min-width: 200px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.nav-links > li.open .dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
       .dropdown a {
         display: block; padding: 12px 20px;
         font-size: 13px; color: var(--gray-60);
@@ -129,7 +142,18 @@ const { title } = Astro.props;
         flex-direction: column;
         overflow-y: auto;
       }
-      .mobile-menu.open { display: flex; }
+      .mobile-menu {
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
       .mobile-menu a {
         font-size: 22px; font-weight: 400;
         font-family: var(--display);
@@ -137,6 +161,20 @@ const { title } = Astro.props;
         padding: 16px 0; border-bottom: 1px solid var(--gray-20);
         transition: color 0.15s;
       }
+      .mobile-menu a:nth-child(1) { transition: color 0.15s, opacity 0.3s 0.05s, transform 0.3s 0.05s; }
+.mobile-menu a:nth-child(2) { transition: color 0.15s, opacity 0.3s 0.1s, transform 0.3s 0.1s; }
+.mobile-menu a:nth-child(3) { transition: color 0.15s, opacity 0.3s 0.15s, transform 0.3s 0.15s; }
+.mobile-menu a:nth-child(4) { transition: color 0.15s, opacity 0.3s 0.2s, transform 0.3s 0.2s; }
+.mobile-menu a:nth-child(5) { transition: color 0.15s, opacity 0.3s 0.25s, transform 0.3s 0.25s; }
+.mobile-menu a:nth-child(6) { transition: color 0.15s, opacity 0.3s 0.3s, transform 0.3s 0.3s; }
+.mobile-menu a:nth-child(7) { transition: color 0.15s, opacity 0.3s 0.35s, transform 0.3s 0.35s; }
+
+.mobile-menu:not(.open) a {
+  opacity: 0; transform: translateY(8px);
+}
+.mobile-menu.open a {
+  opacity: 1; transform: translateY(0);
+}
       .mobile-menu a:hover { color: var(--red); }
       .mobile-menu-sub {
         padding: 8px 0 8px 16px;
@@ -203,6 +241,20 @@ const { title } = Astro.props;
         .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; }
         main { padding-top: 64px; }
       }
+      /* ── SMOOTH TRANSITIONS ── */
+a { transition: color 0.2s ease; }
+
+.nav-contact {
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+nav {
+  transition: box-shadow 0.3s ease;
+}
+nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-bottom-color: transparent;
+}
     </style>
   </head>
   <body>
@@ -211,9 +263,9 @@ const { title } = Astro.props;
       <ul class="nav-links">
         <li><a href="/">Forsíða</a></li>
         <li><a href="/films">Kvikmyndadreifing</a></li>
-        <li>
-          <a href="/portfolio">Hönnun & framleiðsla <span class="arrow">▼</span></a>
-          <div class="dropdown">
+        <li id="dropdown-parent">
+  <a href="/portfolio">Hönnun & framleiðsla <span class="arrow">▼</span></a>
+  <div class="dropdown">
             <a href="/portfolio">Auglýsingahönnun</a>
             <a href="/hljodver">Hljóðver</a>
             <a href="/yfirfaersla">Yfirfærsla</a>
@@ -297,6 +349,21 @@ const { title } = Astro.props;
         mobileMenu.classList.remove('open');
         document.body.style.overflow = '';
       }
-    </script>
+  </script>
+    <script>
+  const parent = document.getElementById('dropdown-parent');
+  parent.addEventListener('mouseenter', () => parent.classList.add('open'));
+  parent.addEventListener('mouseleave', () => parent.classList.remove('open'));
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
   </body>
 </html>
